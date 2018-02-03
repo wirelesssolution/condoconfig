@@ -7,7 +7,8 @@ sitemap demo label="Our Condo" {
 
     Frame {
         Text label="Light" icon="light" {
-            Default item=Bedroom_Light label="Bedroom"
+            Default item=Bedroom_Light label="Main Bedroom"
+            Default item=Bedroom2_Light label="Chidren Bedroom"
             Default item=Kitchen_Light label="Kitchen"
             Default item=LivingRoom_Light label="Living Room"
         }
@@ -17,6 +18,7 @@ sitemap demo label="Our Condo" {
         }
         Text label="Power Outlet" icon="poweroutlet" {
             Default item=Kitchen_Power label="Kitchen"
+            Default item=LivingRoom_Power label="Living Room"
         }
 
 
@@ -44,7 +46,7 @@ sitemap demo label="Our Condo" {
          Frame label="About Us" {
         Text label="Wireless Solution Asia Co.,Ltd" icon="location" {
             Default item=About_US label="About Us"
-	 Webview url="http://www.wirelesssolution.asia" height=15
+	 Webview url="http://www.wirelesssolution.asia" height=55
         }
        }
 
