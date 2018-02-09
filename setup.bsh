@@ -11,8 +11,10 @@ ln -s /opt/openhabian/openhabian-setup.sh /usr/local/bin/openhabian-config
 
 /usr/local/bin/openhabian-config unattended
 
+echo "#!/bin/sh -e" > /etc/rc.local
 echo "ifconfig eth0:0 192.168.0.222 netmask 255.255.255.0 up" >> /etc/rc.local
 echo "ifconfig eth0:1 192.168.1.222 netmask 255.255.255.0 up" >> /etc/rc.local
+echo "exit 0" >> /etc/rc.local
 
 echo "Install MQTT Server"
 apt -y --no-install-recommends install mosquitto mosquitto-clients
