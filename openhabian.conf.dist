@@ -1,0 +1,16 @@
+# Modify your openHABian settings
+# Handle with care, only touch if you need to!!
+
+hostname=capteur
+#userpw=password
+
+# Do not change these lines
+username=openhab
+
+# Language and time. Be sure to set these to valid values
+timeserver=0.pool.ntp.org
+timezone=Asia/Bangkok
+locales="en_US.UTF-8"
+system_default_locale="en_US.UTF-8"
+
+# vim: filetype=sh
