@@ -1,0 +1,41 @@
+ps -ef | grep systemd.daily
+
+apt-get update
+apt-get install git
+
+wget -q -O /etc/openhabian.conf  https://raw.githubusercontent.com/wirelesssolution/condoconfig/master/openhabian.conf.dist
+
+
+git clone https://github.com/openhab/openhabian.git /opt/openhabian
+ln -s /opt/openhabian/openhabian-setup.sh /usr/local/bin/openhabian-config
+
+/usr/local/bin/openhabian-config unattended
+
+echo "ifconfig eth0:0 192.168.0.222 netmask 255.255.255.0 up" >> /etc/rc.local
+echo "ifconfig eth0:1 192.168.1.222 netmask 255.255.255.0 up" >> /etc/rc.local
+
+echo "Install MQTT Server"
+apt -y --no-install-recommends install mosquitto mosquitto-clients
+mosquitto_passwd -b /etc/mosquitto/passwd mymqtt mymqtt
+
+chmod a+w /var/lib/openhab2/jsondb/homekit.json 
+echo "Start OpenHab"
+/etc/init.d/openhab2 start
+ 
+echo "Todo List - bind MQTT."
+echo "Todo List - MISC : Openhab Cloud."
+echo "Todo List - Transformation : JSONPath."
+
+cd /etc/openhab2/services
+echo "UUID"
+cat 	/var/lib/openhab2/uuid
+ln -s /var/lib/openhab2/uuid
+echo "Secret"
+cat /var/lib/openhab2/openhabcloud/secret
+ln -s /var/lib/openhab2/openhabcloud/secret
+
+echo
+echo "Todo List - bind MQTT."
+echo "Config Openhab RUN /usr/local/bin/openhabian-config"
+echo "Done - HOMEKIT 031-45-154."
+echo "Done - OPENHAB installed - you should reboot now."
