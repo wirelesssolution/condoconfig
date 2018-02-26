@@ -11,7 +11,10 @@ ln -s /opt/openhabian/openhabian-setup.sh /usr/local/bin/openhabian-config
 
 /usr/local/bin/openhabian-config unattended
 
-
+echo "Create Cron script" > /etc/openhab2/scripts/ifconfig
+echo "ifconfig eth0:0 192.168.0.222 netmask 255.255.255.0 up" >> /etc/openhab2/scripts/ifconfig
+echo "ifconfig eth0:1 192.168.1.222 netmask 255.255.255.0 up" >> /etc/openhab2/scripts/ifconfig
+echo "exit 0" >> /etc/openhab2/scripts/ifconfig
 
 echo "Install MQTT Server"
 apt -y --no-install-recommends install mosquitto mosquitto-clients
