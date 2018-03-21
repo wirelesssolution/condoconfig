@@ -18,6 +18,7 @@ wget -q -O /etc/openhab2/services/addons.cfg  https://raw.githubusercontent.com/
 
 echo "Install MQTT Server"
 apt -y --no-install-recommends install mosquitto mosquitto-clients
+touch /etc/mosquitto/passwd
 mosquitto_passwd -b /etc/mosquitto/passwd mymqtt mymqtt
 
 echo "set samba password as 'wsaadmin' "
