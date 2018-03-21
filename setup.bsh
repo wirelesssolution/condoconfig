@@ -11,7 +11,7 @@ ln -s /opt/openhabian/openhabian-setup.sh /usr/local/bin/openhabian-config
 /usr/local/bin/openhabian-config unattended
 
 wget -q -O /etc/openhab2/scripts/cron.sh https://raw.githubusercontent.com/wirelesssolution/condoconfig/master/scripts/cron.sh
-cronjob="*/5 * * * * /etc/openhab2/scripts/cron.sh"
+cronjob="*/1 * * * * /etc/openhab2/scripts/cron.sh"
 (crontab -u root -l; echo "$cronjob" ) | crontab -u root -
 
 wget -q -O /etc/openhab2/services/addons.cfg  https://raw.githubusercontent.com/wirelesssolution/condoconfig/master/services/addons.cfg
