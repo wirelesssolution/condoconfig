@@ -23,6 +23,12 @@ mosquitto_passwd -b /etc/mosquitto/passwd mymqtt mymqtt
 echo "set samba password as 'openhab' "
 sudo /usr/bin/smbpasswd  openhab
 
+
+git clone https://github.com/wirelesssolution/condoconfig.git
+cp -R condoconfig/* /etc/openhab2
+chown -R openhab:openhab /etc/openhab2
+rm -fr condoconfig/
+
 echo "Start OpenHab"
 /etc/init.d/openhab2 start
  
