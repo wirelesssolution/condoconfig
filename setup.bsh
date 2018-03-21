@@ -20,7 +20,7 @@ echo "Install MQTT Server"
 apt -y --no-install-recommends install mosquitto mosquitto-clients
 mosquitto_passwd -b /etc/mosquitto/passwd mymqtt mymqtt
 
-echo "set samba password as 'openhab' "
+echo "set samba password as 'wsaadmin' "
 sudo /usr/bin/smbpasswd  openhab
 
 
