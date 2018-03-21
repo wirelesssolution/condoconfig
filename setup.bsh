@@ -8,29 +8,29 @@ wget -q -O /etc/openhabian.conf  https://raw.githubusercontent.com/wirelesssolut
 
 git clone https://github.com/openhab/openhabian.git /opt/openhabian
 ln -s /opt/openhabian/openhabian-setup.sh /usr/local/bin/openhabian-config
-
 /usr/local/bin/openhabian-config unattended
 
-#!/bin/bash
+wget -q -O /etc/openhab2/scripts/cron.sh  https://raw.githubusercontent.com/wirelesssolution/condoconfig/scripts/cron.sh
 cronjob="0 * * * * /etc/openhab2/scripts/cron.sh"
 (crontab -u root -l; echo "$cronjob" ) | crontab -u root -
 
-echo "Create Cron script" > /etc/openhab2/scripts/ifconfig
-echo "ifconfig eth0:0 192.168.0.222 netmask 255.255.255.0 up" >> /etc/openhab2/scripts/ifconfig
-echo "ifconfig eth0:1 192.168.1.222 netmask 255.255.255.0 up" >> /etc/openhab2/scripts/ifconfig
-echo "exit 0" >> /etc/openhab2/scripts/ifconfig
+wget -q -O /etc/openhab2/services/addons.cfg  https://raw.githubusercontent.com/wirelesssolution/condoconfig/master/services/addons.cfg
 
 echo "Install MQTT Server"
 apt -y --no-install-recommends install mosquitto mosquitto-clients
 mosquitto_passwd -b /etc/mosquitto/passwd mymqtt mymqtt
 
-chmod a+w /var/lib/openhab2/jsondb/homekit.json 
+echo "set samba password as 'openhab' "
+sudo /usr/bin/smbpasswd  openhab
+
 echo "Start OpenHab"
 /etc/init.d/openhab2 start
  
 echo "Todo List - bind MQTT."
 echo "Todo List - MISC : Openhab Cloud."
 echo "Todo List - Transformation : JSONPath."
+
+chmod a+w /var/lib/openhab2/jsondb/homekit.json 
 
 cd /etc/openhab2/services
 echo "UUID"
@@ -40,8 +40,6 @@ echo "Secret"
 cat /var/lib/openhab2/openhabcloud/secret
 ln -s /var/lib/openhab2/openhabcloud/secret
 
-echo "set samba password"
-sudo /usr/bin/smbpasswd  openhab
 
 echo "change logo size 145x40 pixcel"
 scp /etc/openhab2/logo paperui/img/logo
