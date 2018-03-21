@@ -26,11 +26,7 @@ sudo /usr/bin/smbpasswd  openhab
 echo "Start OpenHab"
 /etc/init.d/openhab2 start
  
-echo "Todo List - bind MQTT."
-echo "Todo List - MISC : Openhab Cloud."
-echo "Todo List - Transformation : JSONPath."
-
-chmod a+w /var/lib/openhab2/jsondb/homekit.json 
+cls
 
 cd /etc/openhab2/services
 echo "UUID"
@@ -48,7 +44,7 @@ echo "get uuid"
 curl -X GET --header "Accept: text/plain" "http://192.168.0.222:8080/rest/uuid"
 
 
-echo "Todo List - bind MQTT."
+echo "Todo List - chmod a+w /var/lib/openhab2/jsondb/homekit.json "
 echo "Config Openhab RUN /usr/local/bin/openhabian-config"
 echo "Done - HOMEKIT 031-45-154."
 echo "Done - OPENHAB installed - you should reboot now."
