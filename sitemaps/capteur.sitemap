@@ -1,4 +1,4 @@
-sitemap demo label="Our Condo" {
+sitemap capteur label="Our Condo" {
     Frame {
         Group item=Bedroom
         Group item=Kitchen
