@@ -1,0 +1,2 @@
+Number Scene_Item  "Scene" <mediacontrol> (Home)
+String linealert "Line Alert" <light>  {mqtt=">[track:/linealert/u/08829xxxxx/alert:command:*:default]"}
