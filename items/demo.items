@@ -4,7 +4,7 @@ Group    Bedroom               "Bedroom"           <bedroom>       (Home)
 Group    Kitchen               "Kitchen"           <kitchen>       (Home)
 Group    LivingRoom            "Living Room"       <sofa>          (Home)
 
-Switch   Bedroom_Light         "Light"             <switch>         (Bedroom, gLight)  [ "Lighting" ]          
+Switch   Bedroom_Light         "Light"             <light>         (Bedroom, gLight)  [ "Lighting" ]          
   { mqtt=">[mymqtt:cmnd/Light_Switch1/POWER:command:*:default],
 	  <[mymqtt:stat/Light_Switch1/POWER:state:default]" } 
 Switch   Bedroom_AirCon        "Air Conditioner"   <snow>          (Bedroom, gAirCon) [ "Switchable" ]         
