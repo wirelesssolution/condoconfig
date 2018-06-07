@@ -1,4 +1,4 @@
-sitemap capteur label="Our Condo" {
+sitemap capteur label="Our HOME" {
     Frame {
         Group item=Bedroom
         Group item=Kitchen
@@ -44,9 +44,9 @@ sitemap capteur label="Our Condo" {
                 Chart item=Kitchen_Temperature period=Y refresh=30000 visibility=[Chart_Kitchen_Temperature==3]
         }}
          Frame label="About Us" {
-        Text label="Wireless Solution Asia Co.,Ltd" icon="location" {
+        Text label="Capteur Innovation Co.,Ltd" icon="location" {
             Default item=About_US label="About Us"
-	 Webview url="http://www.wirelesssolution.asia" height=55
+	 Webview url="http://www.capteurinnovation.com" height=55
         }
        }
 
