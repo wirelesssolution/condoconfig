@@ -1,2 +1,2 @@
 Number Scene_Item  "Scene" <mediacontrol> (Home)
-String linealert "Line Alert" <light>  {mqtt=">[track:/linealert/u/08829xxxxx/alert:command:*:default]"}
+String linealert "Line Alert" <light>  {mqtt=">[track:/ci/smarthome/linealert/u/08829xxxxx/alert:command:*:default]"}
