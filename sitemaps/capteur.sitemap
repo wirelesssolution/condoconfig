@@ -1,53 +1,38 @@
-sitemap capteur label="Our HOME" {
+sitemap capteur label="My Home" {
     Frame {
+        Switch item=Light_Scene_Item label="Scene" mappings=[0="Wakeup", 1="Sleep", 2="Home"]
+        Switch item=Light_Scene_Item label="Scene" mappings=[3="Away", 4="to Bed", 5="Work"]
         Group item=Bedroom
         Group item=Kitchen
         Group item=LivingRoom
+        Group item=Dinner
+        Group item=Office
     }
-
     Frame {
-        Text label="Light" icon="light" {
-            Default item=Bedroom_Light label="Main Bedroom"
-            Default item=Bedroom2_Light label="Chidren Bedroom"
-            Default item=Kitchen_Light label="Kitchen"
-            Default item=LivingRoom_Light label="Living Room"
-        }
-
-        Text label="Air Conditioner" icon="snow" {
-            Default item=Bedroom_AirCon label="Bedroom"
-        }
-        Text label="Power Outlet" icon="poweroutlet" {
-            Default item=Kitchen_Power label="Kitchen"
-            Default item=LivingRoom_Power label="Living Room"
-        }
-
-
-
+           Group item=gPower
+           Switch item=gPower label="Power" mappings=[ON="All ON",OFF="All Off"]
+           Group item=gLight
+           Switch item=gLight label="Light" mappings=[ON="All ON",OFF="All Off"]
+	   Group item=gAirCon
+           Switch item=gAirCon label="Light" mappings=[ON="All ON",OFF="All Off"]
     }
-        Frame {
-           Text item=Kitchen_Humidity label="Humidity"
-           Text label="View Graph" icon="chart" {
-           Switch item=Chart_Kitchen_Humidity label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
-                Chart item=Kitchen_Humidity period=D refresh=30000 visibility=[Chart_Kitchen_Humidity==0, Chart_Kitchen_Humidity=="Uninitialized"]
-                Chart item=Kitchen_Humidity period=W refresh=30000 visibility=[Chart_Kitchen_Humidity==1]
-                Chart item=Kitchen_Humidity period=M refresh=30000 visibility=[Chart_Kitchen_Humidity==2]
-                Chart item=Kitchen_Humidity period=Y refresh=30000 visibility=[Chart_Kitchen_Humidity==3]
- 	   
-	}}
-        Frame {
-           Text item=Kitchen_Temperature label="Temperature"
-           Text label="View Graph" icon="chart" {
-           Switch item=Chart_Kitchen_Temperature label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
-                Chart item=Kitchen_Temperature period=D refresh=30000 visibility=[Chart_Kitchen_Temperature==0, Chart_Kitchen_Temperature=="Uninitialized"]
-                Chart item=Kitchen_Temperature period=W refresh=30000 visibility=[Chart_Kitchen_Temperature==1]
-                Chart item=Kitchen_Temperature period=M refresh=30000 visibility=[Chart_Kitchen_Temperature==2]
-                Chart item=Kitchen_Temperature period=Y refresh=30000 visibility=[Chart_Kitchen_Temperature==3]
-        }}
-         Frame label="About Us" {
+    Frame {
+                Switch item=Irrigation
+                Text item=Irrigation_state label="Soil Moisture Sensor" icon="water" {
+                Switch item=Chart_Irrigation label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=Irrigation_state period=D refresh=30000 visibility=[Chart_Irrigation==0, Chart_Irrigation=="Uninitialized"]
+                Chart item=Irrigation_state period=W refresh=30000 visibility=[Chart_Irrigation==1]
+                Chart item=Irrigation_state period=M refresh=30000 visibility=[Chart_Irrigation==2]
+                Chart item=Irrigation_state period=Y refresh=30000 visibility=[Chart_Irrigation==3]
+   }
+   }  
+    
+    
+    
+    Frame label="About Us" {
         Text label="Capteur Innovation Co.,Ltd" icon="location" {
             Default item=About_US label="About Us"
 	 Webview url="http://www.capteurinnovation.com" height=55
-        }
-       }
+    }}
 
 }
