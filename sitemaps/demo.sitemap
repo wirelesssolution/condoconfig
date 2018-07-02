@@ -1,0 +1,20 @@
+sitemap demo label="Capteur" {
+    Frame {
+      	Switch item=Light_Scene_Item label="ฉาก" mappings=[0="ตื่นนอน", 1="เข้านอน"]
+      	Switch item=Light_Scene_Item label="ฉาก" mappings=[2="ถึงบ้าน", 3="ออกจากบ้าน"]
+	   Switch item=gLight label="ไฟทั้งหมด" mappings=[ON="เปิด",OFF="ปิด"]
+           Group item=gLight label="ไฟ" 
+	   Switch item=gPower label="ปลั๊กทั้งหมด" mappings=[ON="เปิด",OFF="ปิด"]
+           Group item=gPower  label="ปลั๊ก" 
+	   Switch item=gAirCon label="แอร์ทั้งหมด" mappings=[ON="เปิด",OFF="ปิด"]
+           Group item=gAirCon  label="แอร์"
+    }
+  Frame label="เกี่ยวกับ" {
+        Text label="Capteur Innovation Co.,Ltd" icon="location" {
+        Default item=About_US label="About Us"
+        Webview url="http://www.capteurinnovation.com" height=55
+        }
+  }
+
+}
+
