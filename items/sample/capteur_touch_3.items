@@ -1,0 +1,12 @@
+// เพิ่มจุด Capteur Touch Switch 3 Touch
+// Replace XXXX with Capteur device ID
+//
+   Switch   CAPTEUR_XXXXXX_POWER1 "Touch switch 3 Touch Gang 1"             <light>         (gLight)  [ "Lighting" ]          
+   { mqtt=">[mymqtt:cmnd/CAPTEUR_XXXXXX/POWER1:command:*:default],
+	 <[mymqtt:stat/CAPTEUR_XXXXXX/POWER1:state:default]" } 
+    Switch   CAPTEUR_XXXXXX_POWER2        "Touch switch 3 Touch Gang 2"             <light>         (gLight)  [ "Lighting" ]          
+   { mqtt=">[mymqtt:cmnd/CAPTEUR_XXXXXX/POWER2:command:*:default],
+   <[mymqtt:stat/CAPTEUR_XXXXXX/POWER2:state:default]" } 
+   Switch   CAPTEUR_XXXXXX_POWER3        "Touch switch 3 Touch Gang 3"             <light>         (gLight)  [ "Lighting" ]          
+   { mqtt=">[mymqtt:cmnd/CAPTEUR_XXXXXX/POWER3:command:*:default],
+   <[mymqtt:stat/CAPTEUR_XXXXXX/POWER3:state:default]" } 

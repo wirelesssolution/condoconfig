@@ -1,0 +1,5 @@
+// เพิ่มจุด Capteur Touch Switch 1 Touch
+   Switch   CAPTEUR_XXXXXX        "Touch switch 1 Touch Gang 1"             <light>         (gLight)  [ "Lighting" ]          
+   { mqtt=">[mymqtt:cmnd/CAPTEUR_XXXXXX/POWER:command:*:default],
+   <[mymqtt:stat/CAPTEUR_XXXXXX/POWER:state:default]" } 
+// end

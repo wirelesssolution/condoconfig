@@ -1,0 +1,5 @@
+//  Air Conditon
+Switch  Air_Samsung  "Air Samsung" <heating> (Home,gAirCon)
+Switch  Air_Lg  "Air Samsung" <heating> (Home,gAirCon)
+Switch  Air_Panasonic  "Air Samsung" <heating> (Home,gAirCon)
+

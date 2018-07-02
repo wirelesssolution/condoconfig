@@ -1,0 +1,6 @@
+// replace XXXXXX with Capteur Device id
+
+Switch   CAPTEUR_XXXXXX_POWER "Capteur C20"      <poweroutlet>   (gPower)  [ "Switchable" ]         
+  { mqtt=">[mymqtt:cmnd/CAPTEUR_XXXXXX/POWER:command:*:default],
+	  <[mymqtt:stat/CAPTEUR_XXXXXX/POWER:state:default]" } 
+

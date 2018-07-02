@@ -1,0 +1,11 @@
+// วิธีการแก้ใข ให้ลงทะบียน Line Alert ที่เวป www.capteurinnovation.com เรียบร้อยแล้ว จะได้ UL ID, RL ID หรือ GL ID 
+// ให้นำมาใส่แทน  iUL ID  ในช่อง  xxxxxxxxx
+	String ulinealert "User Line Alert" <light>
+ 	{mqtt=">[track:/ci/smarthome/linealert/u/xxxxxxxx/alert:command:*:default]"}
+// ถ้าต้องการส่ง GROUP LINE ให้นำ  // ออกจากหน้า และแก้  GL ID
+	// String glinealert "Group Line Alert" <light>
+	// {mqtt=">[track:/ci/smarthome/linealert/g/xxxxxxxx/alert:command:*:default]"}
+
+// ถ้าต้องการส่ง ROOM LINE ให้นำ  // ออกจากหน้า และแก้  RL ID 
+	// String rlinealert "Group Line Alert" <light>
+	// {mqtt=">[track:/ci/smarthome/linealert/r/xxxxxxxx/alert:command:*:default]"}

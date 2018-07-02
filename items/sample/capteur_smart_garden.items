@@ -1,0 +1,11 @@
+// Capteur Smart Garden
+//  
+// 1. Change Sensor ID from XXXXX to SENSOR ID
+// 2. Change Sensor BOX from YYYYY to BOX ID
+
+Number Smart_Garden  "Sensor value [%.1f ]" <water>	(All,gGarden) { mqtt="<[mymqtt:tele/CAPTEUR_XXXXXX/SENSOR:state:JSONPATH($.Analog0)]" }
+Switch Smart_Garden_Valve "Valve"           <faucet>    (All,gGarden) 
+  { mqtt=">[mymqtt:cmnd/CAPTEUR_YYYYYY/POWER:command:*:default],
+          <[mymqtt:stat/CAPTEUR_YYYYYY/POWER:state:default]" }
+
+
