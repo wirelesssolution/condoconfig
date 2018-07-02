@@ -1,5 +1,13 @@
 Group    Home                  "Our Home"          <house>
 
+Group   FistFloor       "First Floor"    <groundfloor> (Home)
+Group   SecondFloor     "Second Floor"  <firstfloor>  (Home)
+Group   ThirdFloor     "Third Floor"  <firstfloor>  (Home)
+Group   FourthFloor     "Fourth Floor"  <firstfloor>  (Home)
+Group   FifthFloor     "Fifth Floor"  <firstfloor>  (Home)
+
+Group   GroudFloor     "Groud Floor"  <firstfloor>  (Home)
+
 Group    Bedroom               "Bedroom"           <bedroom>       (Home)
 Group    Kitchen               "Kitchen"           <kitchen>       (Home)
 Group    LivingRoom            "Living"       <sofa>          (Home)
