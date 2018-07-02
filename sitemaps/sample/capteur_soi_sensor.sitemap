@@ -1,0 +1,12 @@
+
+        Frame {
+                Switch item=Irrigation_Valve 
+                Text item=Irrigation_Sensor label="Soil Moisture Sensor" icon="water" {
+                Switch item=Chart_Irrigation label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=Irrigation_Sensor period=D refresh=30000 visibility=[Chart_Irrigation==0, Chart_Irrigation=="Uninitialized"]
+                Chart item=Irrigation_Sensor period=W refresh=30000 visibility=[Chart_Irrigation==1]
+                Chart item=Irrigation_Sensor period=M refresh=30000 visibility=[Chart_Irrigation==2]
+                Chart item=Irrigation_Sensor period=Y refresh=30000 visibility=[Chart_Irrigation==3]
+ 	              }
+        }
+

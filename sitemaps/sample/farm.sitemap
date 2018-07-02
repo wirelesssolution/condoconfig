@@ -1,0 +1,38 @@
+sitemap farmhouse label="Our Farm House" {
+    Frame {
+        Group item=gFarm1 label="Farm House #1" icon="garden"
+        Group item=gFarm2 label="Farm House #2" icon="garden"
+        Group item=gFarm3 label="Farm House #3" icon="garden"
+        Group item=gFarm4 label="Farm House #4" icon="garden"
+    }
+    Frame {
+            Group item=gFarm_Temperatures label="All Temperatures" icon="temperature"
+            Group item=gFarm_Humidities label="All Humidities" icon="humidity"
+            Group item=gFarm_Pressures label="All Pressure" icon="pressure"
+            Group item=gFarm_Illuminances label="All Illuminances" icon="sun_clouds"
+            Group item=gFarm_SoiMoistures label="All Soi Moistures" icon="water"
+            Group item=gFarm_LeafWetness label="All Leaf Wetness" icon="rain"
+            Group item=gFarm_CO2 label="All CO2" icon="carbondioxide"
+            Group item=gFarm_Wind label="All Wind" icon="wind"
+            Group item=gFarm_Lights label="All Lights" icon="light"
+            Group item=gFarm_Fans label="All Fans" icon="fan"
+            Group item=gFarm_Pumps label="All Pumps" icon="pump"
+	}
+   Frame label="All Temperatures" {
+	Chart item=gFarm_Temperatures period=d refresh=300 
+	}
+   Frame label="All Humidities" {
+	Chart item=gFarm_Humidities period=d refresh=300 
+	}
+   Frame label="All Pressures" {
+	Chart item=gFarm_Pressures period=d refresh=300 
+	}
+   Frame label="All Illuminances" {
+	Chart item=gFarm_Illuminances period=d refresh=300 
+	}
+   Frame label="All SoiMoistures" {
+	Chart item=gFarm_SoiMoistures period=d refresh=300 
+	}
+
+}
+

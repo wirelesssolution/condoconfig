@@ -1,0 +1,7 @@
+        Frame label="Map/Location" {
+               Text item=CarDistance {
+               Text item=CarLongitude
+               Text item=CarLatitude
+               Mapview item=Car_Location icon=movecontrol height=19
+               }
+        }

@@ -1,0 +1,195 @@
+sitemap capteur label="My Home" {
+    Frame {
+      	Switch item=Light_Scene_Item label="Scene" mappings=[0="Wakeup", 1="Sleep", 2="Home"]
+      	Switch item=Light_Scene_Item label="Scene" mappings=[3="Away", 4="to Bed", 5="Work"]
+        Group item=Bedroom
+        Group item=Kitchen
+        Group item=LivingRoom
+        Group item=Dinner
+        Group item=Office
+    }
+    Frame {
+           Group item=gPower  
+	   Switch item=gFF_Power label="ปลั๊กล่าง" mappings=[ON="All ON",OFF="All Off"]
+	   Switch item=gSF_Power label="ปลั๊กชั้นสอง" mappings=[ON="All ON",OFF="All Off"]
+           Group item=gLight  
+	   Switch item=gFF_Light label="ไฟล่าง" mappings=[ON="All ON",OFF="All Off"]
+	   Switch item=gSF_Light label="ไฟชั้นสอง" mappings=[ON="All ON",OFF="All Off"]
+     Text item=gAirCon{
+               Switch item=Air_Bedroom label="Air at Bedroom" mappings=[OFF="Off",ON="On"] 
+               Setpoint item=VT_Air_Setpoint_Bedroom label="Target Temperature [%.1f °C]" minValue=18 maxValue=45 step=0.5 visibility=[Air_Bedroom==ON]
+               Text item=SF_Bedroom_Temp visibility=[Air_Bedroom==ON]
+
+               Switch item=Air_Dinner label="Air at Dinner" mappings=[OFF="Off",ON="On"] 
+               Setpoint item=VT_Air_Setpoint_Dinner label="Target Temperature [%.1f °C]" minValue=18 maxValue=45 step=0.5 visibility=[Air_Dinner==ON]
+               Text item=FF_Dinner_Temp visibility=[Air_Dinner==ON] 
+             }
+
+    }
+
+    Frame {
+              Text item=Garage_state {
+              Switch item=Garage_Door1 icon="garagedoor" mappings=[ON="Go!"]  }
+	             Text item=WindowSwitch_Status {
+	             Text item=WindowSwitch_LastOpened 
+	             Switch item=WindowSwitch_Status 
+	             Switch item=WindowSwitch_BatteryLow } 
+	             Text item=MotionSensor_MotionStatus { 
+	             Text item=MotionSensor_LastMotion  
+	             Switch item=MotionSensor_MotionStatus  }
+ 	            Text item=mihome_gateway_34ce0082b850_brightness	
+	             Slider  item=Light_FF_Office_Desk_B
+	             Switch item=Sw_Heater_Towels
+	             Setpoint item=Thermostat_Towels step=0.5 minValue=18 maxValue=45
+	
+	
+
+        }
+        Frame {
+
+                Switch item=PresencePazzy_PhoneMqttHome mappings=[ON="At Home",OFF="Leave Home"] 
+                Selection item=TV_Samsung label="Samsung TV" mappings=[ON="ON/OFF",MUTE="MUTE",VOLUP="+",VOLDOWN="-",CHDOWN="<",CHUP=">"] 
+                Text item=Washing_Machine label="Washing_Machine" icon="washingmachine" {
+                Switch item=Chart_Washing_Machine label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=Washing_Machine period=D refresh=30000 visibility=[Chart_Washing_Machine==0, Chart_Washing_Machine=="Uninitialized"]
+                Chart item=Washing_Machine period=W refresh=30000 visibility=[Chart_Washing_Machine==1]
+                Chart item=Washing_Machine period=M refresh=30000 visibility=[Chart_Washing_Machine==2]
+                Chart item=Washing_Machine period=Y refresh=30000 visibility=[Chart_Washing_Machine==3]
+                }
+
+        }
+        Frame {
+                Switch item=Irrigation1 
+                Text item=Irrigation_state label="Soil Moisture Sensor" icon="water" {
+                Switch item=Chart_Irrigation label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=Irrigation_state period=D refresh=30000 visibility=[Chart_Irrigation==0, Chart_Irrigation=="Uninitialized"]
+                Chart item=Irrigation_state period=W refresh=30000 visibility=[Chart_Irrigation==1]
+                Chart item=Irrigation_state period=M refresh=30000 visibility=[Chart_Irrigation==2]
+                Chart item=Irrigation_state period=Y refresh=30000 visibility=[Chart_Irrigation==3]
+ 	              }
+        }
+        Frame {
+                Text item=Kitchen_Humidity label="Humidity" icon="humidity" {
+                Switch item=Chart_Kitchen_Humidity label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=Kitchen_Humidity period=D refresh=30000 visibility=[Chart_Kitchen_Humidity==0, Chart_Kitchen_Humidity=="Uninitialized"]
+                Chart item=Kitchen_Humidity period=W refresh=30000 visibility=[Chart_Kitchen_Humidity==1]
+                Chart item=Kitchen_Humidity period=M refresh=30000 visibility=[Chart_Kitchen_Humidity==2]
+                Chart item=Kitchen_Humidity period=Y refresh=30000 visibility=[Chart_Kitchen_Humidity==3]
+ 	              }
+                Text item=Kitchen_Temperature label="Temperature" icon="temperature" {
+                Switch item=Chart_Kitchen_Temperature label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=Kitchen_Temperature period=D refresh=30000 visibility=[Chart_Kitchen_Temperature==0, Chart_Kitchen_Temperature=="Uninitialized"]
+                Chart item=Kitchen_Temperature period=W refresh=30000 visibility=[Chart_Kitchen_Temperature==1]
+                Chart item=Kitchen_Temperature period=M refresh=30000 visibility=[Chart_Kitchen_Temperature==2]
+                Chart item=Kitchen_Temperature period=Y refresh=30000 visibility=[Chart_Kitchen_Temperature==3]
+	               }
+        }
+                Frame {
+                Text item=Outdoor_Humidity label="Outdoor Humidity" icon="humidity" {
+                Switch item=Chart_Outdoor_Humidity label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=Outdoor_Humidity period=D refresh=30000 visibility=[Chart_Outdoor_Humidity==0, Chart_Outdoor_Humidity=="Uninitialized"]
+                Chart item=Outdoor_Humidity period=W refresh=30000 visibility=[Chart_Outdoor_Humidity==1]
+                Chart item=Outdoor_Humidity period=M refresh=30000 visibility=[Chart_Outdoor_Humidity==2]
+                Chart item=Outdoor_Humidity period=Y refresh=30000 visibility=[Chart_Outdoor_Humidity==3]
+ 	              }
+                Text item=Outdoor_Temperature label="Outdoor Temperature" icon="temperature" {
+                Switch item=Chart_Outdoor_Temperature label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=Outdoor_Temperature period=D refresh=30000 visibility=[Chart_Outdoor_Temperature==0, Chart_Outdoor_Temperature=="Uninitialized"]
+                Chart item=Outdoor_Temperature period=W refresh=30000 visibility=[Chart_Outdoor_Temperature==1]
+                Chart item=Outdoor_Temperature period=M refresh=30000 visibility=[Chart_Outdoor_Temperature==2]
+                Chart item=Outdoor_Temperature period=Y refresh=30000 visibility=[Chart_Outdoor_Temperature==3]
+	               }
+                Text item=Outdoor_Vcc label="Outdoor VCC" icon="energy" {
+                Switch item=Chart_Outdoor_Vcc label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=Outdoor_Vcc period=D refresh=30000 visibility=[Chart_Outdoor_Vcc==0, Chart_Outdoor_Vcc=="Uninitialized"]
+                Chart item=Outdoor_Vcc period=W refresh=30000 visibility=[Chart_Outdoor_Vcc==1]
+                Chart item=Outdoor_Vcc period=M refresh=30000 visibility=[Chart_Outdoor_Vcc==2]
+                Chart item=Outdoor_Vcc period=Y refresh=30000 visibility=[Chart_Outdoor_Vcc==3]
+ 	              }
+                Text item=Green_Humidity label="Green House Humidity" icon="humidity" {
+                Switch item=Chart_Green_Humidity label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=Green_Humidity period=D refresh=30000 visibility=[Chart_Green_Humidity==0, Chart_Green_Humidity=="Uninitialized"]
+                Chart item=Green_Humidity period=W refresh=30000 visibility=[Chart_Green_Humidity==1]
+                Chart item=Green_Humidity period=M refresh=30000 visibility=[Chart_Green_Humidity==2]
+                Chart item=Green_Humidity period=Y refresh=30000 visibility=[Chart_Green_Humidity==3]
+                }        
+                Text item=Green_Temperature label="Green House Temperature" icon="temperature" {
+                Switch item=Chart_Green_Temperature label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=Green_Temperature period=D refresh=30000 visibility=[Chart_Green_Temperature==0, Chart_Green_Temperature=="Uninitialized"]
+                Chart item=Green_Temperature period=W refresh=30000 visibility=[Chart_Green_Temperature==1]
+                Chart item=Green_Temperature period=M refresh=30000 visibility=[Chart_Green_Temperature==2]
+                Chart item=Green_Temperature period=Y refresh=30000 visibility=[Chart_Green_Temperature==3]
+                }
+                Text item=Green_Pressure label="Green House Pressure" icon="pressure" {
+                Switch item=Chart_Green_Pressure label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=Green_Pressure period=D refresh=30000 visibility=[Chart_Green_Pressure==0, Chart_Green_Pressure=="Uninitialized"]
+                Chart item=Green_Pressure period=W refresh=30000 visibility=[Chart_Green_Pressure==1]
+                Chart item=Green_Pressure period=M refresh=30000 visibility=[Chart_Green_Pressure==2]
+                Chart item=Green_Pressure period=Y refresh=30000 visibility=[Chart_Green_Pressure==3]
+	               }
+                Text item=Green_Illuminance label="Green House Illuminance" icon="rgb" {
+                Switch item=Chart_Green_Illuminance label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=Green_Illuminance period=D refresh=30000 visibility=[Chart_Green_Illuminance==0, Chart_Green_Illuminance=="Uninitialized"]
+                Chart item=Green_Illuminance period=W refresh=30000 visibility=[Chart_Green_Illuminance==1]
+                Chart item=Green_Illuminance period=M refresh=30000 visibility=[Chart_Green_Illuminance==2]
+                Chart item=Green_Illuminance period=Y refresh=30000 visibility=[Chart_Green_Illuminance==3]
+		}
+                Text item=Green_VCC label="Green House VCC" icon="rgb" {
+                Switch item=Chart_Green_VCC label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=Green_VCC period=D refresh=30000 visibility=[Chart_Green_VCC==0, Chart_Green_VCC=="Uninitialized"]
+                Chart item=Green_VCC period=W refresh=30000 visibility=[Chart_Green_VCC==1]
+                Chart item=Green_VCC period=M refresh=30000 visibility=[Chart_Green_VCC==2]
+                Chart item=Green_VCC period=Y refresh=30000 visibility=[Chart_Green_VCC==3]
+                }
+	 Text item=Beacon_RSSI
+	Text item=nPower  label="n power  [%.2f W]"
+	Text item=nPowerAverage24h  label="nPowerAverage24h power  [%.2f W]"
+	Text item=nPowerMaximum24h label="nPowerMaximum24h power  [%.2f W]"
+	Text item=nPowerMinimum24h label="nPowerMinimum24h power  [%.2f W]"
+	Text item=SDM230_Cost label="ค่าไฟ [%.2f บาท]"
+		Text item=SDM230_W  label="SDM230 power  [%.2f W]"  icon="energy" {
+                Switch item=Chart_SDM230_W label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=SDM230_W period=D refresh=30000 visibility=[Chart_SDM230_W==0, Chart_SDM230_W=="Uninitialized"]
+                Chart item=SDM230_W period=W refresh=30000 visibility=[Chart_SDM230_W==1]
+                Chart item=SDM230_W period=M refresh=30000 visibility=[Chart_SDM230_W==2]
+                Chart item=SDM230_W period=Y refresh=30000 visibility=[Chart_SDM230_W==3]
+                }
+                
+                Text item=SDM230_KWh label="SDM230 consumption  [%.2f KWh]" icon="energy" {
+                Switch item=Chart_SDM230_KWh label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=SDM230_KWh period=D refresh=30000 visibility=[Chart_SDM230_KWh==0, Chart_SDM230_KWh=="Uninitialized"]
+                Chart item=SDM230_KWh period=W refresh=30000 visibility=[Chart_SDM230_KWh==1]
+                Chart item=SDM230_KWh period=M refresh=30000 visibility=[Chart_SDM230_KWh==2]
+                Chart item=SDM230_KWh period=Y refresh=30000 visibility=[Chart_SDM230_KWh==3]
+                }
+                Text item=SDM230_KWh_daily label="SDM230 Daily [%.2f KWh]" icon="energy" 
+                Text item=SDM230_KWh_monthly  label="SDM230 Monthly [%.2f KWh]" icon="energy" 
+                Text item=SDM230_Volts   label="SDM230 voltage [%.2f V]" icon="energy" {
+                Switch item=Chart_SDM230_Volts label="Graph " icon="chart"  mappings=[0="Day", 1="Week", 2="Month", 3="Year"]
+                Chart item=SDM230_Volts period=D refresh=30000 visibility=[Chart_SDM230_Volts==0, Chart_SDM230_Volts=="Uninitialized"]
+                Chart item=SDM230_Volts period=W refresh=30000 visibility=[Chart_SDM230_Volts==1]
+                Chart item=SDM230_Volts period=M refresh=30000 visibility=[Chart_SDM230_Volts==2]
+                Chart item=SDM230_Volts period=Y refresh=30000 visibility=[Chart_SDM230_Volts==3]
+                }
+		Text item=SDM230_Amps    label="SDM230 amperage [%.2f A]" 
+
+			
+	}
+	Frame label="Map/Location" {
+	       Text item=mqttCarDistance {
+	       Text item=mqttCarLongitude
+	       Text item=mqttCarLatitude
+	       Image url="http://localhost:8080/static/map/map_9170383282.png" refresh=6000
+	//	Webview url="/static/HideHeader.html" height=19
+	 //      Mapview item=locationCar icon=movecontrol height=19
+		      }
+	}	
+  Frame label="About Us" {
+        Text label="Capteur Innovation Co.,Ltd" icon="location" {
+        Default item=About_US label="About Us"
+        Webview url="http://www.capteurinnovation.com" height=55
+        }
+  }
+
+}
+

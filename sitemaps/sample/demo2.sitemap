@@ -1,13 +1,19 @@
-sitemap demo label="Capteur" {
+sitemap demo2 label="Capteur" {
     Frame {
       	Switch item=Light_Scene_Item label="ฉาก" mappings=[0="ตื่นนอน", 1="เข้านอน"]
       	Switch item=Light_Scene_Item label="ฉาก" mappings=[2="ถึงบ้าน", 3="ออกจากบ้าน"]
-	   Switch item=gLight label="ไฟทั้งหมด" mappings=[ON="เปิด",OFF="ปิด"]
+        Group item=Bedroom label="ห้องนอน"
+        Group item=Kitchen label="ห้องครัว"
+        Group item=LivingRoom label="ห้องนั่งเล่น"
+        Group item=Dinner label="ห้องอาหาร"
+        Group item=Office label="ห้องทำงาน "
+	   Switch item=gLight label="ไฟทั้งหมด" mappings=[ON="เปิด",OFF="ปิด"] 
            Group item=gLight label="ไฟ" 
 	   Switch item=gPower label="ปลั๊กทั้งหมด" mappings=[ON="เปิด",OFF="ปิด"]
            Group item=gPower  label="ปลั๊ก" 
 	   Switch item=gAirCon label="แอร์ทั้งหมด" mappings=[ON="เปิด",OFF="ปิด"]
            Group item=gAirCon  label="แอร์"
+           Group item=gGarden  label="สวน"
     }
   Frame label="เกี่ยวกับ" {
         Text label="Capteur Innovation Co.,Ltd" icon="location" {
