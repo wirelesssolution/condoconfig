@@ -14,7 +14,7 @@ Group    LivingRoom            "Living"       <sofa>          (Home)
 Group    Dinner                 "Dinner"       <party>          (Home)
 Group    Office                 "Office"       <suitcase>          (Home)
 
-
+Number Scene
 
 Group:Switch:OR(ON, OFF)   gLight         "Light"             <light>         (Home)
 Group:Switch:OR(ON, OFF)   gAirCon        "Air Conditioner"   <snow>          (Home)
