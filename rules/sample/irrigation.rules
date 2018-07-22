@@ -1,0 +1,17 @@
+// 1.Put Sensor in the Soi
+// 2.Open Water as normal
+// 3.Get Sensor Data and Update by Plus 50
+
+rule "Check Irrigation"
+when
+       Time cron "0 0/10 * * * ?"//every 10 mins
+then
+if(Irrigation_state.state >= 460){
+        Irrigation1.sendCommand(ON)
+  	ulinealert.sendCommand("เปิดน้ำ")
+	logInfo("org.openhab", "Irrigation ON....")
+	Thread::sleep(100000) // 1000 milliseconds = 1 seconds 
+        Irrigation1.sendCommand(OFF)
+  	ulinealert.sendCommand("ปิดน้ำ")
+} 
+end
