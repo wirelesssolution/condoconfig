@@ -1,1 +1,24 @@
-DEMO
+
+Group    Home                  "Our Home"          <house>
+
+Group   FistFloor       "First Floor"    <groundfloor> (Home)
+Group   SecondFloor     "Second Floor"  <firstfloor>  (Home)
+Group   ThirdFloor     "Third Floor"  <firstfloor>  (Home)
+Group   FourthFloor     "Fourth Floor"  <firstfloor>  (Home)
+Group   FifthFloor     "Fifth Floor"  <firstfloor>  (Home)
+
+Group   GroudFloor     "Groud Floor"  <firstfloor>  (Home)
+
+Group    Bedroom               "Bedroom"           <bedroom>       (Home)
+Group    Kitchen               "Kitchen"           <kitchen>       (Home)
+Group    LivingRoom            "Living"       <sofa>          (Home)
+Group    Dinner                 "Dinner"       <party>          (Home)
+Group    Office                 "Office"       <suitcase>          (Home)
+
+Number Scene
+
+Group:Switch:OR(ON, OFF)   gLight         "Light"             <light>         (Home)
+Group:Switch:OR(ON, OFF)   gAirCon        "Air Conditioner"   <snow>          (Home)
+Group:Switch:OR(ON, OFF)   gPower         "Power Outlet"      <poweroutlet>   (Home)
+Group:Number:AVG           gTemperature   "Temperature"       <temperature>   (Home)
+Group:Number:AVG           gHumidity      "Humidity"          <humidity>      (Home)
