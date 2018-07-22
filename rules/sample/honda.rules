@@ -1,0 +1,69 @@
+// 1. Edit by Change Honda to Any name you want
+// 2. Edit HOME LOCATION . check home location by check location when car are park at home
+// 3. Edit mark distance check car in area
+
+rule "Honda Capteur Smart Car"
+  when 
+    Item HondaCarPositionData changed
+  then
+    val String json = (HondaCarPositionData.state as StringType).toString
+    val String lat1 = "13.813228" // HOME LOCATION
+    val String lon1 = "100.582218" // HOME LOCATION
+    var float  mark  = 0.1 // Distance from HOME Unit KM  1.00 is 1 KM
+    val String valid = transform("JSONPATH", "$.valid", json)
+
+	if (valid == "true") {
+	val String lat2  = transform("JSONPATH", "$.lat", json)
+	val String lon2  = transform("JSONPATH", "$.lon", json)
+
+        HondaCarLatitude.postUpdate(lat2)
+        HondaCarLongitude.postUpdate(lon2)
+        HondaCarLocation.postUpdate(new PointType(lat2 + "," + lon2))
+
+	var String unit = "K"
+	var radlat1 = Math.PI * Float::parseFloat(lat1)/180
+	var radlat2 = Math.PI * Float::parseFloat(lat2)/180
+	var theta = Float::parseFloat(lon1)-Float::parseFloat(lon2)
+	var radtheta = Math.PI * theta/180
+	var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+	dist = Math.acos(dist)
+	dist = dist * 180/Math.PI
+	dist = dist * 60 * 1.1515
+	if (unit=="K") { dist = dist * 1.609344 }
+	if (unit=="N") { dist = dist * 0.8684 }
+
+	   if(HondaCarDistance.state != NULL ) {
+		if (dist <= mark)		{
+		logInfo("capteur_smart_car.rules","Car Entering Home")
+		HondaCarPresence.postUpdate(ON)
+		} 
+		else
+		{
+		logInfo("capteur_smart_car.rules","Car Leaving Home")
+		HondaCarPresence.postUpdate(OFF)
+		}
+		HondaCarLastUpdate.postUpdate(new DateTimeType)
+		HondaCarDistance.postUpdate(dist)
+	   } else {
+		HondaCarLastUpdate.postUpdate(new DateTimeType)
+		HondaCarDistance.postUpdate(dist)
+   	   }
+	}
+  end
+ 
+ 
+rule "Action and Send Line Alert"
+  when
+    Item HondaCarPresence changed
+  then	
+	if (HondaCarPresence.state == ON)
+	{
+		ulinealert.sendCommand("ถึงบ้าน")
+	}
+ 	else
+	{
+		ulinealert.sendCommand("ออกจากบ้าน")
+	}
+
+	
+end
