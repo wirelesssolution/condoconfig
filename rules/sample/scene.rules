@@ -1,0 +1,45 @@
+rule "Scene Event"
+when
+	Item Scene received command
+then
+	switch receivedCommand{
+		case 0:{ // Wakeup
+			Kitchen_Power.sendCommand(ON)
+			LivingRoom_Light.sendCommand(ON)
+			LivingRoom_Power.sendCommand(ON)
+			Air_Bedroom.sendCommand(OFF)
+			Bedroom_Power.sendCommand(OFF)
+		} 
+		case 1:{ // Sleep 
+			gLight.sendCommand(OFF)
+			gPower.sendCommand(OFF)
+			Air_Dinner.sendCommand(OFF)
+		}
+		case 2:{ // Home
+			LivingRoom_Light.sendCommand(ON)
+			LivingRoom_Power.sendCommand(ON)
+		}
+		case 3:{ // Away
+			// Thread::sleep(350)
+			gLight.sendCommand(OFF)
+			gPower.sendCommand(OFF)
+			Air_Bedroom.sendCommand(OFF)
+			Air_Dinner.sendCommand(OFF)
+		}
+		case 4:{ // go to Bed 
+			//Thread::sleep(350)
+			gFF_Light.sendCommand(OFF)
+			gFF_Power.sendCommand(OFF)
+			Bedroom_Power.sendCommand(ON)
+			Bedroom_Light.sendCommand(ON)
+			Air_Bedroom.sendCommand(ON)
+		}
+		case 5:{ // Work  
+			// Thread::sleep(350)
+			Office_Power.sendCommand(ON)
+			Office_Light.sendCommand(ON)
+			Office_Power2.sendCommand(ON)
+			ulinealert.sendCommand("เปิดไฟสำนักงาน")
+		}
+	}
+end
