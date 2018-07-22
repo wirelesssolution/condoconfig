@@ -1,0 +1,15 @@
+rule "OPEN Light"
+when
+Channel 'astro:sun:local:rise#event triggered START
+then
+    ulinealert.sendCommand("Sun Rise Start")
+   //sendCommand(Light, OFF)
+end
+
+rule "OFF Light"
+when
+Channel 'astro:sun:local:set#event' triggered START
+then
+  ulinealert.sendCommand("Sun set Start")
+//sendCommand(Light, ON)
+end
